@@ -5,6 +5,7 @@ import com.codeborne.selenide.Selenide;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.bonigarcia.wdm.config.Config;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 
 
@@ -23,8 +24,8 @@ abstract public class BaseTest {
 
     }
 
-    @AfterAll
-    static public void tearDown()
+    @AfterEach
+     public void close()
     {
         Selenide.closeWebDriver();
     }
