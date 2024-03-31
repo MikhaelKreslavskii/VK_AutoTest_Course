@@ -73,4 +73,14 @@ public class OkTest extends BaseTest{
 
     }
 
+    @Test
+    public void checkSendLikes()
+    {
+        passAuth();
+        HomePage homePage = new HomePage();
+        boolean result = homePage.likePost();
+        Assertions.assertTrue(result);
+        homePage.disLikePost();
+    }
+
 }
