@@ -9,10 +9,10 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class LoginPage {
 
-    private final SelenideElement submitButton = $(By.xpath("/html/body/div[11]/div[5]/div[2]/div[1]/div/div/div/div[2]/div[3]/div[3]/div/div/main/div/div/div/div[2]/div[2]/div/div[2]/div[2]/div[1]/form/div[4]/input"));
-    private final SelenideElement loginTextField = $(By.xpath("/html/body/div[11]/div[5]/div[2]/div[1]/div/div/div/div[2]/div[3]/div[3]/div/div/main/div/div/div/div[2]/div[2]/div/div[2]/div[2]/div[1]/form/div[1]/div/input"));
+    private final SelenideElement submitButton = $(By.xpath(".//*[@value='Войти в Одноклассники']"));
+    private final SelenideElement loginTextField = $(By.xpath(".//*[@name='st.email']"));
 
-    private final SelenideElement passwordTextField = $(By.xpath("/html/body/div[11]/div[5]/div[2]/div[1]/div/div/div/div[2]/div[3]/div[3]/div/div/main/div/div/div/div[2]/div[2]/div/div[2]/div[2]/div[1]/form/div[2]/div/input"));
+    private final SelenideElement passwordTextField = $(By.xpath(".//*[@name='st.password']"));
 
     private final String login = "technopol58";
 
@@ -26,6 +26,7 @@ public class LoginPage {
         passwordTextField.setValue(password);
         submitButton.click();
     }
+
 
     public String getLogin()
     {

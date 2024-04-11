@@ -8,19 +8,20 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class ProfilePage {
 
-    private final SelenideElement textFieldAboutUser = $(By.xpath("/html/body/div[11]/div[5]/div[4]/div[1]/div/div[2]/div[2]/div[3]/div[2]/div[1]/div[3]/div/div[2]/div[1]/div/div[2]/div/div[1]/textarea"));
+    private final SelenideElement textFieldAboutUser = $(By.xpath(".//textarea[@name='long_bio']"));
 
-    private final SelenideElement saveAboutUser = $(By.xpath("/html/body/div[11]/div[5]/div[4]/div[1]/div/div[2]/div[2]/div[3]/div[2]/div[1]/div[3]/div/div[2]/div[1]/div/div[2]/div/div[4]/div[1]/button"));
+    private final SelenideElement saveAboutUser = $(By.xpath(".//div[@class='text-field_control __save']/button"));
 
-    private final SelenideElement aboutUserTitle = $(By.xpath("/html/body/div[11]/div[5]/div[4]/div[1]/div/div[2]/div[2]/div[3]/div[2]/div[1]/div[3]/div/div[2]/div[1]/div/div[2]/div/div[1]/div[2]"));
+    private final SelenideElement aboutUserTitle = $(By.xpath(".//div[@tsid='TextFieldText']"));
 
     public boolean checkAboutUser(CharSequence input){
-        aboutUserTitle.shouldBe(visible).doubleClick();
-        textFieldAboutUser.clear();
-        textFieldAboutUser.sendKeys(input);
-        String s = aboutUserTitle.getText();
-        System.out.println( aboutUserTitle.getText());
+        aboutUserTitle.click();
 
+        textFieldAboutUser.shouldBe(visible).clear();
+
+        textFieldAboutUser.sendKeys(input);
+
+        String s = aboutUserTitle.getText();
         saveAboutUser.click();
 
 
